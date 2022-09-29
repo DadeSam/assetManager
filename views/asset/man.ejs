@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= typeof title != 'undefined' ? title: 'Asset Manager' %></title>
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<script src="/js/sheetjs.js" type="text/javascript"></script>
+	<script src="/js/dataApi.js" type="text/javascript"></script>	
+</head>
+<body>
+
+<%- include('../partials/layout_header') -%>
+		<section class="display" id="display">
+			
+		 <h3 class="header-caption">Manage Asset</h3>
+		  <div class="add_container">
+		  <div class="table_header">
+			<div class="download_bar">
+				 <button id="copy" class="download">Copy</button>
+				 <button id="excel" class="download">Excel</button>
+				 <button id="csv" class="download">Csv</button>
+				 <button id="print" class="download">Print</button>
+			</div>
+			<input type="hidden" id="page_number" value="<%=page %>" />
+			<input type="hidden" id="auto_id"/>
+			 <input type="text" id="table-search" placeholder=" search Table" class="table_search" />
+		  </div>
+		  <table border="1" id="myTable" class="manageTable">
+			<tr>
+				<th>Device Name</th>
+				<th>Asset Type</th>
+				<th>OS</th>
+				<th>Service IP</th>
+				<th>Status</th>
+				<th>System Owner</th>
+				<th>Services</th>
+				<th>Option</th>
+			</tr>
+			</table>
+			
+			<div class="footer-caption">
+				<div id="pager" class="search-results-caption"></div>
+				<div id="navigate" class="search-results-navigation"></div>
+			</div>
+			</div>
+			
+		</section>		
+	</main>
+	<script src="/js/managerscript.js"></script>
+	<script src="/js/script.js"></script>
+</body>
+</html>

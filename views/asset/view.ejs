@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= typeof title != 'undefined' ? title: 'Asset Manager' %></title>
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<script src="/js/dataApi.js" type="text/javascript"></script>
+</head>
+<body>
+
+<%- include('../partials/layout_header') -%>
+			<section class="display" id="display">
+				<input type="hidden" id="ass" value="<%=asset_id %>" />
+				<div id="asset-view">
+                  <div class="bothsides">
+					<div class="overview-card">
+						<div class="asset-image-holder"><img class="asset-image" id="asset-image"></div>
+						<div class="overview-details">
+							<table class="view-table">
+								<tbody>
+									<tr>
+										<th>Device Name</th>
+										<td>:</td>
+										<td id="device_name"></td>
+									</tr>
+
+									<tr>
+										<th>IP Address</th>
+										<td>:</td>
+										<td id="sipadd"></td>
+									</tr>
+
+									<tr>
+										<th>Role</th>
+										<td>:</td>
+										<td id="role"></td>
+									</tr>
+
+									<tr>
+										<th>System Owner</th>
+										<td>:</td>
+										<td id="s_owner"></td>
+									</tr>
+
+									<tr>
+										<th>Platform</th>
+										<td>:</td>
+										<td id="platform"></td>
+									</tr>
+
+									<tr>
+										<th>Asset Type</th>
+										<td>:</td>
+										<td id="asset_type"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+						
+					</div>
+					<div class="bothsides plus-1">
+		              <div class="other-details">
+						<h3 class="header-caption">Other Details</h3>
+						<table class="view-table only" id="view-table">
+							<tbody></tbody>
+						</table>
+						<div class="form-group">
+							<button type="button" class="add_button"><a href="/asset/edit/<%=asset_id %>">Edit Asset</a></button>	
+						</div>
+						</div>
+					
+
+				  </div>
+
+				</div>
+			</section>		
+		</main>
+		<script src="/js/view.js"></script>
+		<script src="/js/script.js"></script>
+	</body>
+	</html>
+		

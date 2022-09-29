@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <title><%= typeof title != 'undefined' ? title: 'Asset Manager' %></title> -->
+	<title>silly doodle</title>
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<script src="/js/sheetjs.js" type="text/javascript"></script>
+	<script src="/js/dataApi.js" type="text/javascript"></script>	
+</head>
+<body>
+<%- include('../partials/layout_header') -%>
+		<section class="display" id="display">
+		
+			<h3 class="header-caption">Manage Asset</h3>
+			<div class="add_container">
+				<div class="table_header">
+					<div class="download_bar">
+						<button id="copy" class="download">Copy</button>
+						<button id="excel" class="download">Excel</button>
+						<button id="csv" class="download">Csv</button>
+						<button id="print" class="download">Print</button>
+					</div>
+					
+					<input type="text" id="table-search" placeholder="search Asset" class="table_search" />
+						</div>
+						<table id="myTable" class="manageTable">
+							<tr>
+								<th>Device Name</th>
+								<th>Asset Type</th>
+								<th>OS</th>
+								<th>Service IP</th>
+								<th>Status</th>
+								<th>System Owner</th>
+								<th>Services</th>
+								<th>Option</th>
+							</tr>
+						
+						
+						<%
+							if(asset_list.length!=0){
+								asset_list.forEach(function(data, index){
+							%>
+						<tr>
+							<td><%=data["device name"] %></td>
+							<td><%=data.asset_type %></td>
+							<td><%=data.os %></td>
+							<td><%=data.sipadd %></td>
+							<td><%=data.status %></td>
+							<td><%=data.s_owner %></td>
+							<td><%=data.services %></td>
+							<td><a class="view" href="/asset/view/<%=data.serial_no %>">
+							<svg class="view-icon">
+									<use xlink:href="/images/sprite.svg#icon-eye"></use>
+								</svg>
+							View
+							</a>
+							<a class="edit" href="/asset/edit/<%=data.device_name %>">
+								<svg class="edit-icon">
+									<use xlink:href="/images/sprite.svg#icon-pencil"></use>
+								</svg>
+								Edit
+							</a>
+							
+							<a class="delete" href="/asset/delete/<%=data.serial_no %>">
+								<svg class="delete-icon">
+									<use xlink:href="/images/sprite.svg#icon-bin"></use>
+								</svg>
+								Delete
+								</a>
+							</td>
+						</tr>
+						<% }); }else{ %>
+							<tr>
+								<td colspan="7">No Data Found</td>
+							</tr>
+						<% } %>
+					</table>
+					
+					<div class="footer-caption">
+						<div class="search-results-caption">
+							<span class="results">1 to 10 of <%=asset_list.length%></span>
+						</div>
+						<div class="search-results-navigation"></div>
+					</div>
+			</div>
+				
+		</section>		
+	</main>
+	<script src="/js/script.js"></script>
+	<script src="/js/managerscript.js"></script>
+</body>
+</html>

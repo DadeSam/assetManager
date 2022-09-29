@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= typeof title != 'undefined' ? title: 'Asset Manager' %></title>
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<!--<script src="/js/sheetjs.js" type="text/javascript"></script> -->
+	<script src="/js/dataApi.js" type="text/javascript"></script>	
+</head>
+<body>
+
+<%- include('../partials/layout_header') -%>
+		<section class="display" id="display">
+		
+			<h3 class="header-caption">Edit Asset</h3>
+			<span id="msg" class="message-caption"><%= message %></span>
+			<div class="add_container">
+				
+				<form action="/asset/edit" method="POST" class="">
+					<div class="first-div">
+						<div class="inner-card-large">
+						<h3 class="form-caption">Hardware Details</h3>
+							<div class="form-group">
+								<label for="asset_cat">Asset Category</label>
+								<input type="hidden" id="hasset_cat" value="<%= asset_data[0]['asset category'] %>" />
+								<select id="asset_cat" name="asset_cat">
+									<option value="server">Server</option>
+									<option value="switch">Switch</option>
+									<option value="firewall">firewall</option>
+									<option value="wireless_controller">Wireless Controller</option>
+									<option value="storage_system">Storage System</option>
+									<option value="redundant_power">Redundant Power</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="asset_type">Asset Type</label>
+								<input type="hidden" id="hasset_type" value="<%= asset_data[0]['asset type'] %>" />
+								<select id="asset_type" name="asset_type">
+									<option value="Physical">Physical</option>
+									<option value="Virtual">Virtual</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="box_owner">Device Name</label>
+								<input type="text" name="device_name" id="device_name" value="<%= asset_data[0]['device name'] %>" readonly/>
+							</div>
+							
+							<div class="form-group">
+								<label for="model">Model</label>
+								<input type="text" name="model" id="model"  value="<%= asset_data[0].model %>" readonly/>
+							</div>
+							
+							
+							<div class="form-group">
+								<label for="serial_no">Serial No</label>
+								<input type="text" name="serial_no" id="serial_no" value="<%= asset_data[0]['serial no'] %>" readonly/>
+							</div>
+							
+							<div class="form-group">
+								<label for="manufacturer">Manufacturer</label>
+								<input type="text" name="manufacturer" id="manufacturer"  value="<%= asset_data[0].manufacturer %>" readonly/>
+							</div>
+							
+							<div class="form-group">
+								<label for="role">Role</label>
+								<textarea id="role" name="role" class="description" rows="3" cols="42"><%= asset_data[0].role %></textarea>
+							</div>
+							
+							<div class="form-group">
+								<label for="os">Platform</label>
+								<input type="text" name="os" id="os"  value="<%= asset_data[0].os %>" />
+								
+							</div>
+						</div>
+						
+
+						<div class="inner-card-small"><img src="/images/<%=asset_data[0]['asset category'] %>.jpg" id='img-change'/></div>
+					</div>
+				
+					<div class="second-div">
+						<div class="inner-card">
+							<h3 class="form-caption">Address</h3>
+							<div class="form-group">
+								<label for="sipadd">Service IP Address</label>
+								<input type="text" name="sipadd" id="ipadd"  value="<%= asset_data[0]['service ip'] %>"/>
+							</div>
+							
+							<div class="form-group">
+								<label for="iloipadd">ILO IP Address</label>
+								<input type="text" name="iloipadd" id="iloipadd"  value="<%= asset_data[0]['ilo ip'] %>" />
+							</div>
+						</div>
+						
+						<input type="hidden" name="asset_id" id="asset_id" value="<%= asset_id %>"/>
+						
+						<div class="inner-card">
+							<h3 class="form-caption">Location</h3>
+							<input type="hidden" id="hdat" value="<%= asset_data[0].datacenter %>" />
+								<div class="form-group">
+									<label for="datacenter">Datacenter</label>
+									<select id="datacenter" name="datacenter">
+										<option value="Accra North">Accra North</option>
+										<option value="Cantonement">Cantonement</option>
+										<option value="Gbawe">Gbawe</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="lane">Lane</label>
+									<input type="text" name="lane" id="lane" value="<%= asset_data[0].lane %>"/>
+								
+								</div>
+								<div class="form-group">
+									<label for="rack">Rack</label>
+									<input type="text" name="rack" id="rack"  value="<%= asset_data[0].rack %>" />
+								</div>
+						</div>
+					 </div>
+					
+						<div class="third-div">
+							<div class="inner-card">
+								<h3 class="form-caption">Users</h3>
+								<div class="form-group">
+									<label for="s_admin">System Admin</label>
+									<input type="text" name="s_admin" id="s_admin" value="<%= asset_data[0]['system admin'] %>"/>
+								</div>
+								<div class="form-group">
+									<label for="s_owner">System Owner</label>
+									<input type="text" name="s_owner" id="s_owner" value="<%= asset_data[0]['system owner'] %>"/>
+								</div>	
+								
+								<div class="form-group">
+									<label for="services">Services</label>
+									<input type="text" name="services" id="services" value="<%= asset_data[0]['services'] %>" />
+								</div>	
+							</div>
+							
+						
+							<div class="inner-card">
+								<h3 class="form-caption">Status & Support</h3>
+								<div class="form-group">
+									<label for="status">Status</label>
+									<input type="hidden" id="hstatus" value="<%= asset_data[0]['status'] %>" />
+									<select id="status" name="status">
+										<option value="Production">Production</option>
+										<option value="Powered Off">Powered Off</option>
+										<option value="EoS/EoL">EoS/EoL</option>
+										<option value="Decommissioned">Decommissioned</option>
+										<option value="New Project">New Project</option>
+										<option value="Relocated">Relocated</option>
+									</select>	
+								</div>
+								<div class="form-group">
+									<label for="support">Suppport</label>
+									<input type="hidden" id="hsupport" value="<%= asset_data[0]['support'] %>" />
+									<select id="support" name="support">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="support_name">If Yes, Please enter company</label>
+									<input readonly type="text" name="support_name" id="support_name" value="<%= asset_data[0]['support name'] %>" />
+								</div>	
+							</div>
+						  </div>
+						  <div class="form-group-inline">
+							<button type="submit" id="edit_asset" class="add_button">Edit Asset</button>	
+						</div>
+
+						<div class="form-group-inline">
+							<div class="loader"></div>	
+						</div>
+				</form>
+			</div>
+		</section>		
+	</main>
+	<script src="/js/editrscript.js"></script>
+	<script src="/js/script.js"></script>
+
+</body>
+</html>

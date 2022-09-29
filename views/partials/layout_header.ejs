@@ -1,0 +1,78 @@
+	<header class="header">
+			<a href="/asset/dashboard"><img src="/images/logos.png" alt="vf logo" class="logo" /></a>
+				
+				<form class="search" id="search-form">
+					<input type="text" name="q" id="search-input" class="search-input" placeholder="search Asset" />
+					<button type="submit" class="search-button" id="search-button">
+						<svg class="search-icon">
+							<use xlink:href="/images/sprite.svg#icon-magnifying-glass"></use>
+						</svg>
+					</button>
+				</form>
+				<div id="search-results" class="search-results"></div>
+			<div class="profile-holder" id="profile-holder">
+				<%= typeof username != 'undefined' ? username: 'User' %>
+				<svg class="profile-icon">
+					<use xlink:href="/images/sprite.svg#icon-user"></use>
+				</svg>	
+			</div>
+
+			<div class="logout shown" id="logout">
+				<form action="/logout" method="POST">
+					<button id="logout-button" type="submit">Logout</button>
+				</form>  
+			</div>		
+	</header>
+	<main id="main">
+		<nav class="sidebar">
+			<ul class="side-nav">
+				<li class="accordion">
+						<svg class="side-nav-icon">
+							<use xlink:href="/images/sprite.svg#icon-tv"></use>
+						</svg>
+						<span><a href="/asset/dashboard">Dashboard</a></span>
+				</li>
+
+				<li class="accordion">
+					<svg class="side-nav-icon">
+						<use xlink:href="/images/sprite.svg#icon-document-landscape"></use>
+					</svg>
+					<span>Assets</span>	
+					<svg class="side-nav-ic">
+					<use xlink:href="/images/sprite.svg#icon-chevron-small-right"></use>
+					</svg>
+				</li>
+					<ul class="panel">
+						<li><a href="/asset/add">Add Asset</a></li>
+						<li><a href="/asset/manage">Manage Asset</a></li>
+						<li><a href="#">Import Asset List</a></li>
+					</ul>
+							
+				<li class="accordion">
+					<svg class="side-nav-icon">
+						<use xlink:href="/images/sprite.svg#icon-circle-with-minus"></use>
+					</svg>
+					<span>Decomissioned</span>
+					<svg class="side-nav-ic">
+						<use xlink:href="/images/sprite.svg#icon-chevron-small-right"></use>
+					</svg>
+				</li>
+				<ul class="panel">
+					<li><a href="#">Expired Items</a></li>
+				</ul>
+				
+				<li class="accordion">
+					<svg class="side-nav-icon">
+						<use xlink:href="/images/sprite.svg#icon-cog"></use>
+					</svg>
+					<span>Settings</span>
+					<svg class="side-nav-ic">
+						<use xlink:href="/images/sprite.svg#icon-chevron-small-right"></use>
+					</svg>
+				</li>
+			</ul>	
+				
+			<div class="legal">
+				&copy; 2021 By IT Infrastructure
+			</div>
+		</nav>

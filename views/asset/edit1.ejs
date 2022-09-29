@@ -1,0 +1,19 @@
+<%- include('../layout_header') -%>
+		<section class="display" id="display">
+		
+			<h3 class="header-caption">Edit Asset</h3>
+			
+			<% if(message.length > 0){ %>
+				<span id="msg" class="message-caption show">
+					<%= message %>
+				</span>
+
+			<%	} %>
+			</span>
+			<div class="add_container">
+				<h3><%= asset_data[0]['asset id'] %></h3>
+				
+			</div>
+		</section>		
+	</main>
+<%- include('../layout_footer') -%>

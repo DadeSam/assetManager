@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= typeof title != 'undefined' ? title: 'Asset Manager' %></title>
+	<link rel="stylesheet" type="text/css" href="/css/custom.css">
+	<!-- <script src="/js/sheetjs.js" type="text/javascript"></script>
+	<script src="/js/dataApi.js" type="text/javascript"></script>	 -->
+</head>
+<body>
+<%- include('../partials/layout_header') -%>
+		<section class="display" id="display">
+			<div>
+			<h3 class="header-caption">Add Asset</h3>
+			<% if(typeof message != undefined){ %>
+				<%	if(typeof message == 'object'){ %>
+						<% message.forEach(function(error){ %>
+							<span id="msg" class="message-caption"><%= error.msg %></span>
+						<% }) %>
+				<%	} else {  %>
+					<span id="msg" class="message-caption"><%= message %></span> 
+				<% } %>
+			<% } %>
+			<div class="add_container">
+				<form action="/asset/add" method="POST" id="add-form">
+					<%- include('../partials/add_edit_form') -%>
+				</form>
+			</div>
+		</div>
+		</section>		
+	</main>
+	<script src="/js/script.js"></script>
+	<script src="/js/addrscript.js"></script>
+	<script src="/js/frontendvalidation.js"></script>
+</body>
+</html>

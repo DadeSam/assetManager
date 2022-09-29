@@ -1,0 +1,207 @@
+<div class="first-div">
+    <div class="inner-card-large">
+    <h3 class="form-caption">Hardware Details</h3>
+        <div class="form-group">
+            <label for="asset_cat">Asset Category</label>
+            <select id="asset_cat" name="asset_cat">
+                <option value="server">Server</option>
+                <option value="switch">Switch</option>
+                <option value="firewall">firewall</option>
+                <option value="wireless_controller">Wireless Controller</option>
+                <option value="storage_system">Storage System</option>
+                <option value="redundant_power">Redundant Power</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="asset_type">Asset Type</label>
+            <select id="asset_type" name="asset_type">
+                <option value="Physical">Physical</option> 
+                <option value="Virtual">Virtual</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="device_name">Device Name</label>
+            <input type="text" name="device_name" id="device_name" data-cbe="true" />
+            <span id="devicetaken"></span>
+            <input type="hidden" id="asset_id" name="asset_id"/>
+        </div>
+        
+        <div class="form-group">
+            <label for="model">Model</label>
+            <input type="text" name="model" id="model" />
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="serial_no">Serial No</label>
+            <input type="text" name="serial_no" id="serial_no" />
+        </div>
+        
+        <div class="form-group">
+            <label for="manufacturer">Manufacturer</label>
+            <input type="text" name="manufacturer" id="manufacturer" />
+        </div>
+        
+        <div class="form-group">
+            <label for="role">Role</label>
+            <textarea id="role" name="role" class="description" rows="3" cols="42" data-cbe="true" title=""Role is a required field"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="os">Platform</label>
+            <select id="os" name="os">
+                <option value="Linux">Linux</option>
+                <option value="Windows">Windows</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="os_version">OS Version</label>
+            <input type="text" id="os_version" name="os_version" data-cbe="true"/>
+        </div>
+
+        <div class="form-group">
+            <label for="install_date">Installation Date</label>
+            <input type="date" id="install_date" name="install_date" data-cbe="true" />
+        </div>
+
+    </div>
+    
+    <div class="inner-card-small"><img src="/images/server.jpg" id='img-change' alt="asset image"/></div>
+</div>
+
+<div class="second-div">
+    <div class="inner-card">
+        <h3 class="form-caption">Network</h3>
+        <div class="form-group">
+            <label for="sipadd">Production IP</label>
+            <input type="text" name="sipadd" id="sipadd" data-cbe="true" />
+            <span id="invalidip"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="iloipadd">Management IP</label>
+            <input type="text" name="iloipadd" id="iloipadd" />
+        </div>
+
+        <div class="form-group">
+            <label for="gateway">Default Gateway</label>
+            <input type="text" name="gateway" id="gateway" />
+        </div>
+
+        <div class="form-group">
+            <label for="vlan">VLAN</label>
+            <input type="text" name="vlan" id="vlan" />
+        </div>
+
+        <div class="form-group">
+            <label for="subnet">Subnet</label>
+            <input type="text" name="subnet" id="subnet" />
+        </div>
+
+        <div class="form-group">
+            <label for="porttype">Port Type</label>
+            <input type="text" name="porttype" id="porttype" />
+        </div>
+
+        <div class="form-group">
+            <label for="switchport">Switch Port</label>
+            <input type="text" name="switchport" id="switchport" />
+        </div>
+
+        <div class="form-group">
+            <label for="patchport">Port on Patch Panel</label>
+            <input type="text" name="patchport" id="patchport" />
+        </div>
+    </div>
+    
+    <!-- <input type="hidden" name="box_id" id="box_id" /> -->
+    
+    <div class="inner-card check-height">
+        <h3 class="form-caption">Location</h3>
+            <div class="form-group">
+                <label for="datacenter">Datacenter</label>
+                <select id="datacenter" name="datacenter">
+                    <option value="Accra North">Accra North</option>
+                    <option value="Cantonement">Cantonement</option>
+                    <option value="Gbawe">Gbawe</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lane">Lane</label>
+                <input type="text" name="lane" id="lane" />
+            
+            </div>
+            <div class="form-group">
+                <label for="rack">Rack</label>
+                <input type="text" name="rack" id="rack" />
+            </div>
+
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" name="position" id="position" />
+            </div>
+
+    </div>
+ </div>
+
+    <div class="third-div">
+        <div class="inner-card">
+            <h3 class="form-caption">Users</h3>
+            <div class="form-group">
+                <label for="s_admin">System Admin</label>
+                <input type="text" name="s_admin" id="s_admin" data-cbe="true"/>
+            </div>
+            <div class="form-group">
+                <label for="s_owner">System Owner</label>
+                <input type="text" name="s_owner" id="s_owner" data-cbe="true"/>
+            </div>	
+            
+            <div class="form-group">
+                <label for="services">Services</label>
+                <input type="text" name="services" id="services" data-cbe="true"/> <br>
+                <small>(If multiple services, comma-separate them)</small>
+            </div>	
+        </div>
+        
+    
+        <div class="inner-card">
+            <h3 class="form-caption">Status & Support</h3>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="Production">Production</option>
+                    <option value="Powered Off">Powered Off</option>
+                    <option value="EoS/EoL">EoS/EoL</option>
+                    <option value="Decommissioned">Decommissioned</option>
+                    <option value="New Project">New Project</option>
+                    <option value="Relocated">Relocated</option>
+                </select>	
+            </div>
+            <div class="form-group">
+                <label for="support">Suppport</label>
+                <select id="support" name="support">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="support_name">If Yes, Please enter company</label>
+                <input readonly type="text" name="support_name" id="support_name" />
+            </div>	
+
+            <div class="form-group">
+                <label for="support_end_date">End of Support Date</label>
+                <input readonly type="date" name="support_end_date" id="support_end_date" />
+            </div>
+        </div>
+      </div>
+    <div class="form-group-inline">
+        <button type="submit" id="add_asset" class="add_button" disabled >Add Asset</button>	
+    </div>
+
+    <div class="form-group-inline">
+        <div class="loader"></div>	
+    </div>
